@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style type="text/tailwindcss">
+        :root {
+    --purple: rgb(210, 51, 235);
+    --blue: rgb(96, 165, 250);
+    --green: #;
+    --animationtime: 45s;
+    --length: 25;
+    }
+    @font-face {
+    font-family: 'Indonesiana';
+    src: url('./media/font/FTF\ Indonesiana.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
+    @theme {
+    --font-indonesiana: 'Indonesiana', serif;
+    --font-popins:
+    }
+    
+    .mulish-900 {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    }
+    .swiper {
+    width: 100%;
+    height: 100%;
+    }
+    .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #444;
+    width: 100%;
+    height: 100%;
+    }
+</style>
+<link rel="icon" href="./media/image/logo-polos.png">
+    <title>Tauang</title>
+</head>
+
+<body class="overflow-x-hidden">
+    <nav id="navbar"
+        class="navbar w-full px-4 xl:px-[10%] py-2 flex items-center justify-between transition-all duration-300 bg-transparent absolute top-0 left-0 z-10">
+        <span class="flex items-center">
+            <img id="logo" src="./media/image/logo-polos.png" alt="logo" class="size-15 md:size-20" />
+            <h2 class="font-indonesiana text-xl md:text-2xl -ml-2 text-white xl:text-black" id="tawang">Tauang</h2>
+        </span>
+        <div class="flex xl:flex-row-reverse items-center gap-3 xl:gap-8 xl:text-xl">
+            <a class="hidden xl:inline font-bold" href="./pages/profil.html">Disimpan</a>
+            <a class="hidden xl:inline font-bold" href="./pages/buat-artikel.html">Buat Artikel</a>
+            <a class="hidden xl:inline font-bold" href="./pages/simulasi-investasi.html">Simulasi Investasi</a>
+            <a class="hidden xl:inline font-bold" href="./pages/article.html">Artikel</a>
+            <a href="./pages/login.html"
+                class="px-4 py-1 bg-red-600 text-white md:text-xl rounded-full font-semibold">Login</a>
+            <button class="xl:hidden" id="menuButton">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                    class="fill-white xl:fill-slate-800 size-8 md:size-12 m-2" id="menu">
+                    <path
+                        d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <!-- Overlay -->
+    <div id="sideMenuOverlay"
+        class="fixed inset-0 backdrop-blur-lg bg-opacity-40 z-40 hidden transition-opacity duration-300"></div>
+    <div id="sideMenu"
+        class="fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden">
+        <button id="closeMenu" class="absolute top-4 left-4 text-xl font-bold">
+            <svg class="fill-black size-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+        </button>
+        <div class="flex flex-col mt-16 text-[17px] font-semibold">
+            <!-- <div class="space-y-3 px-3 border-y border-slate-300 pt-10">
+                <div class="size-20 mx-auto">
+                    <img src="./media/image/pp-user.png" alt="Profi"
+                        class="object-cover size-20 rounded-full aspect-square" />
+                    <span
+                        class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full translate-x-1 translate-y-1"></span>
+                </div>
+                <div class="flex flex-col justify-center mb-4">
+                    <h1 class="leading-6 text-center">Windah Basudara</h1>
+                    <p class="text-xs text-center text-slate-500">Brando Franco Windah</p>
+                </div>
+                <a href="" class="flex w-fit justify-items-center items-center mx-auto py-3">
+                    <svg class="size-[18px] fill-black mr-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 -960 960 960">
+                        <path
+                            d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" />
+                    </svg>
+                    <h2 class="text-sm">Pengaturan</h2>
+                </a>
+            </div> -->
+            <a class="p-6 flex items-center" href="./pages/article.html">
+                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M280-280h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Zm-80 480q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z" />
+                </svg>
+                <h2>Artikel</h2>
+            </a>
+            <a class="p-6 flex items-center" href="./pages/simulasi-investasi.html">
+                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M280-160v-80h-80v-480h80v-80h80v80h80v480h-80v80h-80Zm0-160h80v-320h-80v320Zm320 160v-200h-80v-280h80v-160h80v160h80v280h-80v200h-80Zm0-280h80v-120h-80v120Zm-280-40Zm320-20Z" />
+                </svg>
+                <h2>Simulasi Investasi</h2>
+            </a>
+            <a class="p-6 flex items-center" href="./pages/buat-artikel.html">
+                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M160-120v-170l527-526q12-12 27-18t30-6q16 0 30.5 6t25.5 18l56 56q12 11 18 25.5t6 30.5q0 15-6 30t-18 27L330-120H160Zm80-80h56l393-392-28-29-29-28-392 393v56Zm560-503-57-57 57 57Zm-139 82-29-28 57 57-28-29ZM560-120q74 0 137-37t63-103q0-36-19-62t-51-45l-59 59q23 10 36 22t13 26q0 23-36.5 41.5T560-200q-17 0-28.5 11.5T520-160q0 17 11.5 28.5T560-120ZM183-426l60-60q-20-8-31.5-16.5T200-520q0-12 18-24t76-37q88-38 117-69t29-70q0-55-44-87.5T280-840q-45 0-80.5 16T145-785q-11 13-9 29t15 26q13 11 29 9t27-13q14-14 31-20t42-6q41 0 60.5 12t19.5 28q0 14-17.5 25.5T262-654q-80 35-111 63.5T120-520q0 32 17 54.5t46 39.5Z" />
+                </svg>
+                <h2>Buat Arikel</h2>
+            </a>
+            <a class="p-6 flex items-center" href="./pages/profil.html">
+                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M160-80v-560q0-33 23.5-56.5T240-720h320q33 0 56.5 23.5T640-640v560L400-200 160-80Zm80-121 160-86 160 86v-439H240v439Zm480-39v-560H280v-80h440q33 0 56.5 23.5T800-800v560h-80ZM240-640h320-320Z" />
+                </svg>
+                <h2>Disimpan</h2>
+            </a>
+        </div>
+    </div>
+    <main class="min-h-screen mx-auto mb-20 xl:pt-24">
+        <div class="xl:w-[80vw] mx-auto bottom-0 flex xl:space-x-15 justify-center items-center xl:bg-red-500 xl:drop-shadow-2xl rounded-lg xl:px-10 xl:py-15"
+            id="welcome">
+            <div
+                class="max-xl:min-w-screen xl:w-1/2 flex justify-items-center max-xl:shadow-2xl shadow-white max-xl:border-b-2 border-dashed border-red-600">
+                <img src="./media/image/main-img.jpg" alt="Hero Image"
+                    class="w-full h-[85vh] object-cover object-[40%_center] blur-[2px] xl:hidden" />
+                <div class="absolute xl:static inset-0">
+                    <div class="flex flex-col h-full items-center justify-center w-full space-y-4 xl:space-y-7">
+                        <h1
+                            class="text-3xl md:text-5xl font-bold mx-2 xl:m-0 text-center xl:text-left text-white mulish-900">
+                            <p class="text-white">
+                                Investasi <span class="text-red-500 xl:text-white">Pengetahuan,</span></p>
+                            <p class="text-black">
+                                Hasil Berkelanjutan.</p>
+                        </h1>
+                        <h2
+                            class="max-w-80 font-semibold xl:max-w-96 xl:self-start text-center font-semibold text-sm xl:text-left xl:mt-7 xl:text-white xl:text-lg">
+                            Tingkatkan kemampuan finansial Anda
+                            <span class="hidden xl:inline t">untuk memahami risiko, mengelola aset, dan membangun masa
+                                depan yang stabil</span>.
+                        </h2>
+                        <button onclick="window.location.href='./pages/article.html'"
+                            class="bg-red-600 xl:self-start text-white px-5 py-2 border-2 border-white font-bold">Lihat
+                            Artikel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden xl:block w-1/2 h-[40vh]">
+                <div
+                    class="swiper Heroimg w-full h-full rounded-2xl overflow-hidden border-dashed border-2 border-white">
+                    <div class="swiper-wrapper h-full">
+                        <div class="swiper-slide">
+                            <a href="./pages/content-artikel.html">
+                                <div
+                                    class="text-white absolute bottom-0 w-full py-5 px-10 bg-red-500/15 backdrop-blur-lg">
+                                    <h1 class="text-2xl font-bold">Masa Depan Investasi Digital</h1>
+                                    <h2 class="font-semibold italic">By Satoshi</h2>
+                                </div>
+                                <img class="w-full h-full object-cover" src="media/image/content1-main.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./pages/content-artikel.html">
+                                <div class="text-white absolute bottom-0 w-full py-5 px-10 bg-red-500/15 backdrop-blur-lg">
+                                <h1 class="text-2xl font-bold">Menghasilkan Uang dari YouTube - Panduan Kreator Era Digital</h1>
+                                <h2 class="font-semibold italic">By Windah Basudara</h2>
+                            </div>
+                            <img class="w-full h-full object-cover" src="media/image/youtube-artikel.png" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./pages/content-artikel.html">
+                                <div class="text-white absolute bottom-0 w-full py-5 px-10 bg-red-500/15 backdrop-blur-lg">
+                                <h1 class="text-2xl font-bold">Donasi yang Terencana - Mengelola Kebaikan dengan Bijak</h1>
+                                <h2 class="font-semibold italic">By Windah Basudara</h2>
+                            </div>
+                            <img class="w-full h-full object-cover" src="./media/image/berbagi.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./pages/content-artikel.html">
+                                <div class="text-white absolute bottom-0 w-full py-5 px-10 bg-red-500/15 backdrop-blur-lg">
+                                <h1 class="text-2xl font-bold">Rekening Nganggur 3 Bulan Bisa Diblokir</h1>
+                                <h2 class="font-semibold italic">By Komeng</h2>
+                            </div>
+                            <img class="w-full h-full object-cover" src="media/image/content3-main.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="xl:w-[80vw] mx-auto relative md:px-14 xl:px-0 object -top-20 md:-top-35 xl:top-0 z-0 justify-center items-center flex flex-col">
+            <div class="hidden xl:block my-6">
+                <h1 class="text-6xl xl:text-4xl font-bold text-center">Fitur Aplikasi</h1>
+                <h2 class="my-2 mx-72 text-center">Temukan solusi cerdas untuk kebutuhan finansial dan informasi digital
+                    Anda. Dirancang untuk kenyamanan, kecepatan, dan kepercayaan.</h2>
+            </div>
+            <section
+                class="flex mx-3 md:mx-0 space-x-3 md:space-x-10 xl:space-x-20 text-center text-xs md:text-xl font-semibold">
+                <div class="w-2/3">
+                    <div class="p-2 box-border drop-shadow-lg min-h-full bg-red-600 text-white rounded-md space-y-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg " class="size-7 md:size-12 mx-auto fill-white"
+                            viewBox="0 -960 960 960">
+                            <path
+                                d="M336-120q-91 0-153.5-62.5T120-336q0-38 13-74t37-65l142-171-97-194h530l-97 194 142 171q24 29 37 65t13 74q0 91-63 153.5T624-120H336Zm144-200q-33 0-56.5-23.5T400-400q0-33 23.5-56.5T480-480q33 0 56.5 23.5T560-400q0 33-23.5 56.5T480-320Zm-95-360h190l40-80H345l40 80Zm-49 480h288q57 0 96.5-39.5T760-336q0-24-8.5-46.5T728-423L581-600H380L232-424q-15 18-23.5 41t-8.5 47q0 57 39.5 96.5T336-200Z" />
+                        </svg>
+                        <hr class="h-1 bg-white border-t-0">
+                        <h2 class="md:my-5">Panduan interaktif untuk memahami alur keuangan dan membangun kebiasaan
+                            finansial yang sehat.
+                        </h2>
+                    </div>
+                </div>
+                <div class="w-2/3">
+                    <div
+                        class="p-2 box-border drop-shadow-lg min-h-full bg-white text-black rounded-md space-y-1.5 border border-black/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-7 md:size-12 mx-auto fill-black"
+                            viewBox="0 -960 960 960">
+                            <path
+                                d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
+                        </svg>
+                        <hr class="h-1 bg-black border-t-0">
+                        <h2 class="md:my-5">Fitur analitik dan pelaporan yang membantu Anda memahami tren dan mengambil
+                            keputusan yang lebih cerdas.
+                        </h2>
+                    </div>
+                </div>
+                <div class="w-2/3">
+                    <div class="p-2 box-border shadow-lg min-h-full bg-red-600 text-white rounded-md space-y-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-7 md:size-12 mx-auto fill-white"
+                            viewBox="0 -960 960 960">
+                            <path
+                                d="M360-120v-80H240v-80h80v-400h-80v-80h120v-80h80v80h80v-80h80v85q52 14 86 56.5t34 98.5q0 29-10 55.5T682-497q35 21 56.5 57t21.5 80q0 66-47 113t-113 47v80h-80v-80h-80v80h-80Zm40-400h160q33 0 56.5-23.5T640-600q0-33-23.5-56.5T560-680H400v160Zm0 240h200q33 0 56.5-23.5T680-360q0-33-23.5-56.5T600-440H400v160Z" />
+                        </svg>
+                        <hr class="h-1 bg-white border-t-0">
+                        <h2 class="md:my-5">Temukan artikel seputar kripto, dompet digital, dan teknologi finansial
+                            terbaru.
+                        </h2>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="mt-25 w-[80vw] mx-auto">
+            <div class="space-y-5">
+                <div class="flex flex-col xl:flex-row-reverse mt-10">
+                    <img class="w-[80%] xl:w-[85%] xl:my-16  object-cover mx-auto rounded-lg overflow-hidden xl:rounded-l-none shadow-xl"
+                        src="./media/image/misi-section.jpg" alt="">
+                    <div
+                        class="p-10 py-4 border-b border-x xl:border-r-0 xl:border-t drop-shadow-red-500 bg-white relative rounded-md -top-8 xl:top-0 w-full left-0">
+                        <h1 class="text-4xl xl:text-6xl font-bold text-center xl:text-left text-red-500 xl:my-5">About
+                            Us</h1>
+                        <h2 class="xl:text-justify md:text-lg xl:text-xl">Tauang adalah platform terbuka yang
+                            bertujuan meningkatkan
+                            pemahaman finansial masyarakat Indonesia.<p class="hidden xl:inline">Mulai dari pelajar,
+                                pekerja, hingga pelaku usaha kecil.
+                                Kami percaya bahwa akses terhadap informasi keuangan yang jujur, relevan, dan mudah
+                                dipahami
+                                adalah hak setiap individu.</p>
+                        </h2>
+                        <ul class="list-disc ml-0 xl:ml-14 md:text-lg xl:text-xl text-left">
+                            <li>Menyederhanakan konsep keuangan agar bisa dipahami siapa saja</li>
+                            <li>Menyediakan artikel, simulasi, dan tools interaktif untuk belajar finansial</li>
+                            <li>Mendorong kebiasaan finansial sehat melalui edukasi berbasis komunitas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-25 xl:mt-60 shadow-lg w-[100vw] relative">
+            <div class="absolute inset-0 -z-20">
+                <img src="./media/image/bg-artikel.jpg" alt="Background" class="w-full h-full object-cover">
+            </div>
+            <!-- Blur Overlay Layer -->
+            <div class="absolute inset-0 -z-10 backdrop-blur-lg backdrop-grayscale bg-white/30"></div>
+            <div class="w-full px-5 lg:px-50">
+                <h1 class="text-4xl font-bold pl-5 py-8 text-white text-center">Artikel
+                    <hr class="mt-1 text-red-500 border-2 w-20 mx-auto">
+                </h1>
+                <div class="xl:mt-10 pb-0.5">
+                    <div
+                        class="xl:flex xl:justify-between xl:items-center xl:mt-10 bg-white xl:rounded-xl overflow-hidden">
+                        <img class="w-full object-cover xl:w-[35%] xl:mi aspect-video"
+                            src="./media/image/content1-main.jpg" alt="">
+                        <div class="p-5 py-10 xl:py-4 bg-white">
+                            <span class="flex items-center justify-between xl:mr-10 text-[11px] md:text-base">
+                                <span class="space-x-2">
+                                    <h2 class="bg-slate-900 text-lime-400 inline px-2 py-1 rounded-full xl:text-sm">
+                                        Crypto &
+                                        Blockchain
+                                    </h2>
+                                    <h2 class="bg-emerald-600 inline px-2 py-1 rounded-full xl:text-sm">Investasi
+                                    </h2>
+                                </span>
+                                <h2 class="text-black">14 April,2025</h2>
+                            </span>
+                            <h1 class="text-2xl md:text-4xl xl:text-xl font-bold mt-2">Masa Depan Investasi Digital</h1>
+                            <p class="mt-2 md:text-xl xl:text-sm">Teknologi blockchain membuka peluang baru dalam dunia
+                                keuangan. Dari aset kripto hingga smart contract, investor kini memiliki akses ke
+                                sistem yang
+                                transparan, aman, dan terdesentralisasi.</p>
+                            <a href="./pages/content-artikel.html"
+                                class="group md:text-xl xl:text-base inline-block mt-3 px-4 py-2 bg-red-500 rounded-full transition-colors duration-500 hover:bg-slate-800">
+                                <span
+                                    class="not-group-hover:text-white group-hover:bg-gradient-to-r from-lime-400 to-white text-transparent bg-clip-text font-semibold transition-all duration-500">
+                                    Baca Selengkapnya
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        class="xl:flex xl:justify-between xl:items-center xl:mt-10 bg-white xl:rounded-xl overflow-hidden">
+                        <img class="w-full object-cover xl:w-[35%] xl:mi aspect-video"
+                            src="./media/image/youtube-artikel.png" alt="">
+                        <div class="p-5 py-10 xl:py-4 bg-white">
+                            <span class="flex items-center justify-between xl:mr-10 text-[11px] md:text-base">
+                                <span class="space-x-2">
+                                    <h2 class="bg-emerald-600 inline px-2 py-1 rounded-full text-white">Portofolio</h2>
+                                </span>
+                                <h2 class="text-black">4 Agustus,2025</h2>
+                            </span>
+                            <h1 class="text-2xl md:text-4xl xl:text-xl font-bold mt-2">Menghasilkan Uang dari YouTube -
+                                Panduan Kreator Era Digital</h1>
+                            <p class="mt-2 md:text-xl xl:text-sm">Pelajari strategi monetisasi, bangun audiens yang
+                                loyal, dan ubah konten menjadi sumber penghasilan berkelanjutan melalui platform video
+                                terbesar di dunia.</p>
+                            <a href="./pages/content-artikel.html"
+                                class="group md:text-xl xl:text-base inline-block mt-3 px-4 py-2 bg-red-500 rounded-full transition-colors duration-500 hover:bg-slate-800">
+                                <span
+                                    class="not-group-hover:text-white group-hover:bg-gradient-to-r from-lime-400 to-white text-transparent bg-clip-text font-semibold transition-all duration-500">
+                                    Baca Selengkapnya
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="./pages/article.html"
+                        class="flex justify-items-center items-center w-fit mx-auto mb-10 py-3 px-10 rounded-full bg-red-500 my-10">
+                        <h1 class="text-base md:text-lg xl:text-2xl italic text-white">Lihat Artikel Lainnyanya</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-6 ml-2 fill-white" viewBox="0 -960 960 960">
+                            <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="mt-25 xl:mt-60 w-[80vw] mx-auto rounded-lg shadow-lg p-10">
+            <div class="space-y-5">
+                <h1 class="text-center text-3xl font-bold self flex-none">Aktifitas Harian</h1>
+                <div class="space-y-5 xl:flex items-center">
+                    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js"
+                        type="module"></script>
+                    <dotlottie-wc class="h-44 w-44 md:w-72 md:h-72 m mx-auto"
+                        src="https://lottie.host/abf4ac38-034b-401d-8e91-40c4a4ff6600/aWD7zzxavG.lottie" speed="1"
+                        autoplay loop></dotlottie-wc>
+                    <div class="mx-auto space-y-2 xl:w-1/2">
+                        <div>
+                            <div class="flex justify-between text-xs md:text-base xl:text-lg font-light mb-1">
+                                <span>Crypto & Blockchain</span>
+                                <span>66.4%</span>
+                            </div>
+                            <div class="h-3 md:h-4 xl:h-6 bg-green-200 rounded-full">
+                                <div class="h-3 md:h-4 xl:h-6 bg-green-500 rounded-full" style="width: 66.4%"></div>
+                            </div>
+                        </div>
+                        <!-- Manajemen Gangguan Psikotik -->
+                        <div>
+                            <div class="flex justify-between text-xs md:text-base xl:text-lg font-light mb-1">
+                                <span>Bisnis & Kewirausahaan</span>
+                                <span>15.1%</span>
+                            </div>
+                            <div class="h-3 md:h-4 xl:h-6 bg-orange-200 rounded-full">
+                                <div class="h-3 md:h-4 xl:h-6 bg-orange-500 rounded-full" style="width: 15.1%"></div>
+                            </div>
+                        </div>
+                        <!-- Sains & Kemasyarakatan -->
+                        <div>
+                            <div class="flex justify-between text-xs md:text-base xl:text-lg font-light mb-1">
+                                <span>Manajemen Keuangan Pribadi</span>
+                                <span>7.1%</span>
+                            </div>
+                            <div class="h-3 md:h-4 xl:h-6 bg-blue-200 rounded-full">
+                                <div class="h-3 md:h-4 xl:h-6 bg-blue-500 rounded-full" style="width: 7.1%"></div>
+                            </div>
+                        </div>
+                        <!-- Cinta & Eksistensi -->
+                        <div>
+                            <div class="flex justify-between text-xs md:text-base xl:text-lg font-light mb-1">
+                                <span>Lainnya</span>
+                                <span>11.5%</span>
+                            </div>
+                            <div class="h-3 md:h-4 xl:h-6 bg-gray-300 rounded-full">
+                                <div class="h-3 md:h-4 xl:h-6 bg-gray-600 rounded-full" style="width: 11.5%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </main>
+    <footer class="bg-red-600">
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-6 md:mb-0">
+                    <a href="" class="flex items-center">
+                        <img src="./media/image/Logo.png" class="h-14 me-3" alt="" />
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
+                    <div>
+                        <h2 class="mb-6 text-sm font-semibold text-white uppercase">Fitur</h2>
+                        <ul class="text-white font-medium">
+                            <li class="mb-4">
+                                <a class="aitrig hover:underline">Asisten Tawang</a>
+                            </li>
+                            <li>
+                                <a href="./pages/simulasi-investasi.html" class="hover:underline">Simulasi Investasi</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Legal</h2>
+                        <ul class="text-white font-medium">
+                            <li class="mb-4">
+                                <a href="#" class="hover:underline">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <span class="text-sm text-white sm:text-center">© 2025 <a href="#"
+                        class="hover:underline">Tauang</a>. All Rights Reserved.
+                </span>
+                <div class="flex mt-4 sm:justify-center sm:mt-0">
+                    <a href="#" class="text-white hover:text-gray-900 ">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 8 19">
+                            <path fill-rule="evenodd"
+                                d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Facebook page</span>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-900  ms-5">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 21 16">
+                            <path
+                                d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
+                        </svg>
+                        <span class="sr-only">Discord community</span>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-900  ms-5">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 17">
+                            <path fill-rule="evenodd"
+                                d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Twitter page</span>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-900 ms-5">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">GitHub account</span>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-900 ms-5">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Dribbble account</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div
+        class="fixed bottom-5 right-5 xl:bottom-10 xl:right-10 p-2 bg-red-500 rounded-full rounded-br-none transition-all aibutton opacity-0">
+        <img class="size-5 md:size-9 xl:size-11" src="./media/image/ai.png" alt="">
+    </div>
+    <!-- Popup Chat Component -->
+    <div id="popupChat" class="fixed inset-0 flex items-center justify-center bg-black/40 z-50 hidden">
+        <div class="relative flex flex-col items-center w-[750px] max-w-[90vw] mx-auto">
+            <div class="bg-white rounded-xl shadow-2xl p-6 w-full">
+                <button id="closePopupChat"
+                    class="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-2xl font-bold">&times;</button>
+                <h1 class="mb-4 text-4xl font-bold text-center">TAWANG AI</h1>
+                <div class="h-64 bg-slate-200 p-3 rounded-xl overflow-y-scroll mb-4 min-h-96">
+                    <div class="flex mb-4 rounded-xl rounded-tl-4xl float-left">
+                        <span class="mr-2.5 float-left"><img class="w-10 rounded-full" src="./media/image/pphitam.jpg"
+                                alt=""></span>
+                        <p
+                            class="float-right max-w-[75%] text-xs md:text-base xl:text-lg font-semibold bg-white rounded-r-2xl rounded-bl-2xl p-2 leading-3.5 md:leading-5">
+                            Halo, perkenalkan saya Tawang AI👋
+                            <br><br>
+                            Saya siap membantu Anda menghitung pengeluaran harian, mencari artikel finansial yang
+                            relevan, dan memberikan
+                            wawasan cerdas untuk keputusan keuangan Anda.
+                            <br><br>
+                            💡 Mulai dengan satu pertanyaan, satu ide, atau satu angka.
+                            📊 Saya akan bantu Anda memahami, merencanakan, dan mengelola keuangan dengan lebih bijak.
+                            <br><br>
+                            ✨ Yuk, eksplorasi fitur kami:
+                            <br>
+                            - Simulasi tabungan & investasi
+                            <br>
+                            - Artikel edukatif sesuai kebutuhan Anda
+                            <br>
+                            - Insight harian untuk kebiasaan finansial yang lebih sehat
+                            <br>
+                            - Tanya jawab langsung dengan AI
+                        </p>
+                    </div>
+                    <p
+                        class="float-right max-w-3/4 text-xs md:text-base xl:text-lg font-semibold bg-white rounded-l-2xl rounded-br-2xl p-2 leading-3.5 md:leading-5 mb-4">
+                        Halo, saya minta bantuannya mencatat pengeluaran saya minggu ini.</p>
+                    <div class="flex w-full mb-4 rounded-xl rounded-tl-4xl float-left">
+                        <span class="mr-2.5 float-left"><img class="w-10 rounded-full" src="./media/image/pphitam.jpg"
+                                alt=""></span>
+                        <p
+                            class="float-right max-w-[75%] text-xs md:text-base xl:text-lg font-semibold bg-white rounded-r-2xl rounded-bl-2xl p-2 leading-3.5 md:leading-5 mb-4">
+                            Saya siap bantu! Kita mulai dari hari Senin ya. <br> Apa saja pengeluaran Anda hari itu?</p>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <label for="aiPrompt" class="block text-sm font-semibold text-gray-700 mb-2">
+                        Ajukan Pertanyaan atau Hitung Keuangan Anda
+                    </label>
+                    <textarea id="aiPrompt" name="aiPrompt" rows="6"
+                        placeholder="Tulis pertanyaan, ide, atau hitung keuangan harian Anda bersama AI."
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm resize-none bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-200 transition duration-200"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Ambil semua elemen dengan class .aibutton dan .aitrig
+        const triggers = document.querySelectorAll('.aibutton, .aitrig');
+
+        // Tambahkan event listener ke masing-masing trigger
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', function () {
+                document.getElementById('popupChat').classList.remove('hidden');
+            });
+        });
+
+        // Tombol untuk menutup popup
+        document.getElementById('closePopupChat').addEventListener('click', function () {
+            document.getElementById('popupChat').classList.add('hidden');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".Heroimg", {
+            direction: "vertical",
+            slidesPerView: 1,
+            spaceBetween: 30,
+            mousewheel: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            loop: true,
+        });
+        const menuButton = document.getElementById('menuButton');
+        const sideMenu = document.getElementById('sideMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const overlay = document.getElementById('sideMenuOverlay');
+        function openMenu() {
+            sideMenu.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                sideMenu.classList.remove('translate-x-full');
+                sideMenu.classList.add('translate-x-0');
+                overlay.classList.add('opacity-100');
+                overlay.classList.remove('opacity-0');
+            }, 10);
+        }
+        function closeMenuFunc() {
+            sideMenu.classList.add('translate-x-full');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+            sideMenu.classList.remove('translate-x-0');
+            setTimeout(() => {
+                sideMenu.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }, 300);
+        }
+        menuButton.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const tawang = document.getElementById('tawang');
+            const menu = document.getElementById('menu');
+            if (window.scrollY > 700) {
+                navbar.classList.add('fixed', 'top-0', 'bg-white/80', 'backdrop-blur-md', 'shadow-lg', 'z-50');
+                navbar.classList.remove('absolute', 'bg-transparent', 'z-10');
+                tawang.classList.add('text-slate-800');
+                tawang.classList.remove('text-white');
+                menu.classList.add('fill-slate-800');
+                menu.classList.remove('fill-white');
+            } else {
+                navbar.classList.remove('fixed', 'top-0', 'bg-white/80', 'backdrop-blur-md', 'shadow-lg', 'z-50');
+                navbar.classList.add('absolute', 'bg-transparent', 'z-10');
+                tawang.classList.remove('text-slate-800');
+                tawang.classList.add('text-white');
+                menu.classList.remove('fill-slate-800');
+                menu.classList.add('fill-white');
+            }
+        });
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const scrollBottom = window.innerHeight + scrollTop;
+            const pageHeight = document.documentElement.scrollHeight;
+            const target = document.querySelector('.aibutton');
+            const nearTop = scrollTop < 20;
+            const nearBottom = pageHeight - scrollBottom < 20;
+            if (nearTop || nearBottom) {
+                target.classList.add('opacity-0');
+            } else {
+                target.classList.remove('opacity-0');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

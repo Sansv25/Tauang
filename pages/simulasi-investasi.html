@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" href="../media/image/logo-polos.png">
+    <title>Tauang</title>
+    <style type="text/tailwindcss">
+        :root {
+    --purple: rgb(210, 51, 235);
+    --blue: rgb(96, 165, 250);
+    --green: #;
+    --animationtime: 45s;
+    --length: 25;
+    }
+    @font-face {
+    font-family: 'Indonesiana';
+    src: url('../media/font/FTF\ Indonesiana.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
+    @theme {
+    --font-indonesiana: 'Indonesiana', serif;
+    }
+    
+    .mulish-900 {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    }
+    .swiper {
+    width: 100%;
+    height: 100%;
+    }
+    .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #444;
+    width: 100%;
+    height: 100%;
+    }
+    .ql-editor img {
+    @apply w-full h-auto rounded-xl shadow-md my-4 transition-transform duration-300 ease-in-out;
+    
+  }
+</style>
+</head>
+<body class="max-h-screen">
+<nav id="navbar"
+        class="navbar w-full px-4 py-2 flex items-center justify-between transition-all duration-300 bg-transparent top-0 left-0 z-10">
+        <a href="../index.html" class="flex items-center">
+            <img src="../media/image/logo-polos.png" alt="logo" class="size-15 md:size-20" />
+            <h2 class="font-indonesiana text-xl md:text-2xl -ml-2 text-black xl:text-black">Tauang</h2>
+        </a>
+        <div class="flex xl:flex-row-reverse items-center gap-3 xl:gap-8 xl:text-xl">
+            <a href="./profil.html" class="hidden xl:block">
+                <img class="size-14 object-cover rounded-full" src="../media/image/pp-user.png" alt="">
+            </a>
+            <a class="hidden xl:inline font-bold" href="./profil.html">Disimpan</a>
+            <a class="hidden xl:inline font-bold" href="./buat-artikel.html">Buat Artikel</a>
+            <a class="hidden xl:inline font-bold" href="./article.html">Artikel</a>
+            <a class="hidden xl:inline font-bold" href="../index.html">Home</a>
+            <button class="xl:hidden" id="menuButton">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                    class="fill-slate-800 size-8 md:size-12 m-2">
+                    <path
+                        d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <!-- Overlay -->
+    <div id="sideMenuOverlay"
+        class="fixed inset-0 backdrop-blur-lg bg-opacity-40 z-40 hidden transition-opacity duration-300"></div>
+    <div id="sideMenu"
+        class="fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden">
+        <button id="closeMenu" class="absolute top-4 left-4 text-xl font-bold">
+            <svg class="fill-black size-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+        </button>
+        <div class="flex flex-col mt-16 text-[17px] font-semibold">
+            <a href="profil.html">
+                <div class="space-y-3 px-3 border-y border-slate-300 pt-10">
+                <div class="size-20 mx-auto">
+                    <img src="../media/image/pp-user.png" alt="Profi"
+                        class="object-cover size-20 rounded-full aspect-square" />
+                    <span
+                        class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full translate-x-1 translate-y-1"></span>
+                </div>
+                <div class="flex flex-col justify-center mb-4">
+                    <h1 class="leading-6 text-center">Windah Basudara</h1>
+                    <p class="text-xs text-center text-slate-500">Brando Franco Windah</p>
+                </div>
+                <a href="profil.html" class="flex w-fit justify-items-center items-center mx-auto py-3">
+                    <svg class="size-[18px] fill-black mr-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 -960 960 960">
+                        <path
+                            d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" />
+                    </svg>
+                    <h2 class="text-sm">Pengaturan</h2>
+                </a>
+            </div>
+            </a>
+            <a class="p-6 flex items-center" href="../index.html">
+                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+                <h2>Home</h2>
+            </a>
+            <a class="p-6 flex items-center" href="./article.html">
+                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M280-280h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Zm-80 480q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z" />
+                </svg>
+                <h2>Artikel</h2>
+            </a>
+            <a class="p-6 flex items-center" href="./buat-artikel.html">
+                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M160-120v-170l527-526q12-12 27-18t30-6q16 0 30.5 6t25.5 18l56 56q12 11 18 25.5t6 30.5q0 15-6 30t-18 27L330-120H160Zm80-80h56l393-392-28-29-29-28-392 393v56Zm560-503-57-57 57 57Zm-139 82-29-28 57 57-28-29ZM560-120q74 0 137-37t63-103q0-36-19-62t-51-45l-59 59q23 10 36 22t13 26q0 23-36.5 41.5T560-200q-17 0-28.5 11.5T520-160q0 17 11.5 28.5T560-120ZM183-426l60-60q-20-8-31.5-16.5T200-520q0-12 18-24t76-37q88-38 117-69t29-70q0-55-44-87.5T280-840q-45 0-80.5 16T145-785q-11 13-9 29t15 26q13 11 29 9t27-13q14-14 31-20t42-6q41 0 60.5 12t19.5 28q0 14-17.5 25.5T262-654q-80 35-111 63.5T120-520q0 32 17 54.5t46 39.5Z" />
+                </svg>
+                <h2>Buat Arikel</h2>
+            </a>
+            <a class="p-6 flex items-center" href="./profil.html">
+                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M160-80v-560q0-33 23.5-56.5T240-720h320q33 0 56.5 23.5T640-640v560L400-200 160-80Zm80-121 160-86 160 86v-439H240v439Zm480-39v-560H280v-80h440q33 0 56.5 23.5T800-800v560h-80ZM240-640h320-320Z" />
+                </svg>
+                <h2>Disimpan</h2>
+            </a>
+        </div>
+    </div>
+<div class="tradingview-widget-container h-[70vh]">
+  <div id="tradingview_chart"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+  {
+    "allow_symbol_change"; true,
+    "calendar"; false,
+    "details"; false,
+    "hide_side_toolbar"; true,
+    "hide_top_toolbar"; false,
+    "hide_legend"; true,
+    "hide_volume"; false,
+    "hotlist"; false,
+    "interval"; "D",
+    "locale"; "en",
+    "save_image"; false,
+    "style"; "1",
+    "symbol"; "NASDAQ:AAPL",
+    "theme"; "light",
+    "timezone"; "Etc/UTC",
+    "backgroundColor"; "#ffffff",
+    "gridColor"; "rgba(242, 242, 242, 0.06)",
+    "watchlist"; [],
+    "withdateranges"; false,
+    "compareSymbols"; [],
+    "studies"; [],
+    "autosize"; true
+  }
+  </script>
+</div>
+<div class="h-full px-5 py-2">
+    <div class="flex gap-1 h-full">
+        <div class="flex flex-col gap-3 text-sm md:text-xl xl:text-base w-20 md:w-28">
+            <div>
+                <h1>Buy Avg.</h1>
+                <h2>170.000</h2>
+            </div>
+            <div>
+                <h1>Sell Avg.</h1>
+                <h2>170.000</h2>
+            </div>
+            <div>
+                <h1>Last Price.</h1>
+                <h2>170.000</h2>
+            </div>
+        </div>
+        <div class="space-y-3 md:space-y-6  xl:space-y-3 w-full flex flex-col justify-between h-full">
+            <div>
+                <h1 class="text-center text-2xl md:text-4xl font-bold">Simulasi Investasi</h1>
+                <hr class="w-20 mx-auto border-t-2 border-red-500">
+            </div>
+            <div class="w-full flex">
+                <select class="px-1 mr-1 border-2 rounded-lg text-xs md:text-lg focus:outline-none border-slate-300 focus:border-red-500" name="durasi">
+                    <option value="" disabled selected>Durasi Investasi</option>
+                    <option value="1week">1 Minggu</option>
+                    <option value="1month">1 Bulan</option>
+                    <option value="1year">1 Tahun</option>
+                </select>
+                <input placeholder="Modal Awal" class="peer py-2 px-2 rounded-l-lg w-full focus:outline-none border-2 border-slate-300 focus:border-red-500 text-xs md:text-lg" type="number">
+                <button class="w-1/4 border-2 rounded-r-lg border-l-0 font-semibold border-slate-300 peer-focus:border-green-500 md:text-lg px-1">OK</button>
+            </div>
+            <div class="flex gap-4">
+                <button class="border-2 border-red-500 px-7 py-2 rounded-md text-xl md:text-2xl w-1/2 font-semibold">BUY</button>
+                <button class="border-2 border-green-500 px-7 py-2 rounded-md text-xl md:text-2xl w-1/2 font-semibold">SELL</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        const menuButton = document.getElementById('menuButton');
+        const sideMenu = document.getElementById('sideMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const overlay = document.getElementById('sideMenuOverlay');
+        function openMenu() {
+            sideMenu.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                sideMenu.classList.remove('translate-x-full');
+                sideMenu.classList.add('translate-x-0');
+                overlay.classList.add('opacity-100');
+                overlay.classList.remove('opacity-0');
+            }, 10);
+        }
+        function closeMenuFunc() {
+            sideMenu.classList.add('translate-x-full');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+            sideMenu.classList.remove('translate-x-0');
+            setTimeout(() => {
+                sideMenu.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }, 300);
+        }
+        menuButton.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+</body>
+</html>
