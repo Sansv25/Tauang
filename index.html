@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html class="dark scroll-smooth" lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,9 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style type="text/tailwindcss">
-        :root {
+    @custom-variant dark (&:where(.dark, .dark *));
+    :root {
     --purple: rgb(210, 51, 235);
     --blue: rgb(96, 165, 250);
     --green: #;
@@ -48,26 +49,58 @@
     }
 </style>
 <link rel="icon" href="./media/image/logo-polos.png">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>Tauang</title>
+    <script>
+        
+    </script>
 </head>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden bg-white dark:bg-slate-700">
     <nav id="navbar"
         class="navbar w-full px-4 xl:px-[10%] py-2 flex items-center justify-between transition-all duration-300 bg-transparent absolute top-0 left-0 z-10">
-        <span class="flex items-center">
+        <span data-aos="fade-down" data-aos-delay="400" data-aos-duration="500" data-aos-anchor="#navbar" class="flex items-center">
             <img id="logo" src="./media/image/logo-polos.png" alt="logo" class="size-15 md:size-20" />
-            <h2 class="font-indonesiana text-xl md:text-2xl -ml-2 text-white xl:text-black" id="tawang">Tauang</h2>
+            <h2 class="font-indonesiana text-xl md:text-2xl -ml-2 text-white xl:text-black dark:text-white" id="tawang">Tauang</h2>
         </span>
-        <div class="flex xl:flex-row-reverse items-center gap-3 xl:gap-8 xl:text-xl">
-            <a class="hidden xl:inline font-bold" href="./pages/profil.html">Disimpan</a>
-            <a class="hidden xl:inline font-bold" href="./pages/buat-artikel.html">Buat Artikel</a>
-            <a class="hidden xl:inline font-bold" href="./pages/simulasi-investasi.html">Simulasi Investasi</a>
-            <a class="hidden xl:inline font-bold" href="./pages/article.html">Artikel</a>
+        <div data-aos="fade" data-aos-delay="600" data-aos-duration="800" data-aos-anchor="#navbar" class="flex xl:flex-row-reverse items-center gap-3 xl:gap-8 xl:text-xl">
+            <a class="hidden xl:inline font-bold dark:text-white" href="./pages/profil.html">Disimpan</a>
+            <a class="hidden xl:inline font-bold dark:text-white" href="./pages/buat-artikel.html">Buat Artikel</a>
+            <a class="hidden xl:inline font-bold dark:text-white" href="./pages/simulasi-investasi.html">Simulasi Investasi</a>
+            <a class="hidden xl:inline font-bold dark:text-white" href="./pages/article.html">Artikel</a>
             <a href="./pages/login.html"
-                class="px-4 py-1 bg-red-600 text-white md:text-xl rounded-full font-semibold">Login</a>
-            <button class="xl:hidden" id="menuButton">
+                class="px-4 py-1 bg-red-600 text-white md:text-xl rounded-full font-semibold  komponen-satu block">Login</a>
+            <button type="button"
+                class="hs-dark-mode-active:hidden block hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                data-hs-theme-click-value="dark">
+                <span class="group inline-flex shrink-0 justify-center items-center size-9">
+                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    </svg>
+                </span>
+            </button>
+            <button type="button"
+                class="hs-dark-mode-active:block hidden hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                data-hs-theme-click-value="light">
+                <span class="group inline-flex shrink-0 justify-center items-center size-9">
+                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2"></path>
+                        <path d="M12 20v2"></path>
+                        <path d="m4.93 4.93 1.41 1.41"></path>
+                        <path d="m17.66 17.66 1.41 1.41"></path>
+                        <path d="M2 12h2"></path>
+                        <path d="M20 12h2"></path>
+                        <path d="m6.34 17.66-1.41 1.41"></path>
+                        <path d="m19.07 4.93-1.41 1.41"></path>
+                    </svg>
+                </span>
+            </button>
+                <button class="xl:hidden" id="menuButton">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
-                    class="fill-white xl:fill-slate-800 size-8 md:size-12 m-2" id="menu">
+                    class="fill-white xl:fill-slate-800 dark:fill-slate-800 size-8 md:size-12 m-2" id="menu">
                     <path
                         d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z" />
                 </svg>
@@ -78,15 +111,16 @@
     <div id="sideMenuOverlay"
         class="fixed inset-0 backdrop-blur-lg bg-opacity-40 z-40 hidden transition-opacity duration-300"></div>
     <div id="sideMenu"
-        class="fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden">
+        class="fixed top-0 right-0 h-full w-64 bg-white dark:bg-slate-700 shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden">
         <button id="closeMenu" class="absolute top-4 left-4 text-xl font-bold">
-            <svg class="fill-black size-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+            <svg class="fill-black dark:fill-white size-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                 <path
                     d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
             </svg>
         </button>
-        <div class="flex flex-col mt-16 text-[17px] font-semibold">
-            <!-- <div class="space-y-3 px-3 border-y border-slate-300 pt-10">
+        <div class="flex flex-col mt-16 text-[17px] font-semibold dark:text-white">
+            <a href="./pages/profil.html">
+                <div class="space-y-3 px-3 border-y border-slate-300 pt-10 komponen-dua hidden">
                 <div class="size-20 mx-auto">
                     <img src="./media/image/pp-user.png" alt="Profi"
                         class="object-cover size-20 rounded-full aspect-square" />
@@ -98,37 +132,38 @@
                     <p class="text-xs text-center text-slate-500">Brando Franco Windah</p>
                 </div>
                 <a href="" class="flex w-fit justify-items-center items-center mx-auto py-3">
-                    <svg class="size-[18px] fill-black mr-1" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="size-[18px] fill-black dark:fill-white mr-1" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 -960 960 960">
                         <path
                             d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" />
                     </svg>
                     <h2 class="text-sm">Pengaturan</h2>
                 </a>
-            </div> -->
+            </div>
+            </a>
             <a class="p-6 flex items-center" href="./pages/article.html">
-                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <svg class="fill-black dark:fill-white size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path
                         d="M280-280h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Zm-80 480q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z" />
                 </svg>
                 <h2>Artikel</h2>
             </a>
             <a class="p-6 flex items-center" href="./pages/simulasi-investasi.html">
-                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <svg class="fill-black dark:fill-white size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path
                         d="M280-160v-80h-80v-480h80v-80h80v80h80v480h-80v80h-80Zm0-160h80v-320h-80v320Zm320 160v-200h-80v-280h80v-160h80v160h80v280h-80v200h-80Zm0-280h80v-120h-80v120Zm-280-40Zm320-20Z" />
                 </svg>
                 <h2>Simulasi Investasi</h2>
             </a>
             <a class="p-6 flex items-center" href="./pages/buat-artikel.html">
-                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <svg class="fill-black dark:fill-white size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path
                         d="M160-120v-170l527-526q12-12 27-18t30-6q16 0 30.5 6t25.5 18l56 56q12 11 18 25.5t6 30.5q0 15-6 30t-18 27L330-120H160Zm80-80h56l393-392-28-29-29-28-392 393v56Zm560-503-57-57 57 57Zm-139 82-29-28 57 57-28-29ZM560-120q74 0 137-37t63-103q0-36-19-62t-51-45l-59 59q23 10 36 22t13 26q0 23-36.5 41.5T560-200q-17 0-28.5 11.5T520-160q0 17 11.5 28.5T560-120ZM183-426l60-60q-20-8-31.5-16.5T200-520q0-12 18-24t76-37q88-38 117-69t29-70q0-55-44-87.5T280-840q-45 0-80.5 16T145-785q-11 13-9 29t15 26q13 11 29 9t27-13q14-14 31-20t42-6q41 0 60.5 12t19.5 28q0 14-17.5 25.5T262-654q-80 35-111 63.5T120-520q0 32 17 54.5t46 39.5Z" />
                 </svg>
                 <h2>Buat Arikel</h2>
             </a>
             <a class="p-6 flex items-center" href="./pages/profil.html">
-                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <svg class="fill-black dark:fill-white size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path
                         d="M160-80v-560q0-33 23.5-56.5T240-720h320q33 0 56.5 23.5T640-640v560L400-200 160-80Zm80-121 160-86 160 86v-439H240v439Zm480-39v-560H280v-80h440q33 0 56.5 23.5T800-800v560h-80ZM240-640h320-320Z" />
                 </svg>
@@ -136,29 +171,29 @@
             </a>
         </div>
     </div>
-    <main class="min-h-screen mx-auto mb-20 xl:pt-24">
+    <main class="min-h-screen mx-auto mb-20 xl:pt-24" id="main">
         <div class="xl:w-[80vw] mx-auto bottom-0 flex xl:space-x-15 justify-center items-center xl:bg-red-500 xl:drop-shadow-2xl rounded-lg xl:px-10 xl:py-15"
-            id="welcome">
+            id="welcome" data-aos="fade" data-aos-duration="800">
             <div
                 class="max-xl:min-w-screen xl:w-1/2 flex justify-items-center max-xl:shadow-2xl shadow-white max-xl:border-b-2 border-dashed border-red-600">
                 <img src="./media/image/main-img.jpg" alt="Hero Image"
                     class="w-full h-[85vh] object-cover object-[40%_center] blur-[2px] xl:hidden" />
                 <div class="absolute xl:static inset-0">
                     <div class="flex flex-col h-full items-center justify-center w-full space-y-4 xl:space-y-7">
-                        <h1
+                        <h1 data-aos="fade-down" data-aos-duration="800"
                             class="text-3xl md:text-5xl font-bold mx-2 xl:m-0 text-center xl:text-left text-white mulish-900">
                             <p class="text-white">
                                 Investasi <span class="text-red-500 xl:text-white">Pengetahuan,</span></p>
                             <p class="text-black">
                                 Hasil Berkelanjutan.</p>
                         </h1>
-                        <h2
+                        <h2 data-aos="fade-up" data-aos-duration="800"
                             class="max-w-80 font-semibold xl:max-w-96 xl:self-start text-center font-semibold text-sm xl:text-left xl:mt-7 xl:text-white xl:text-lg">
                             Tingkatkan kemampuan finansial Anda
                             <span class="hidden xl:inline t">untuk memahami risiko, mengelola aset, dan membangun masa
                                 depan yang stabil</span>.
                         </h2>
-                        <button onclick="window.location.href='./pages/article.html'"
+                        <button data-aos="fade-up" data-aos-duration="800" onclick="window.location.href='./pages/article.html'"
                             class="bg-red-600 xl:self-start text-white px-5 py-2 border-2 border-white font-bold">Lihat
                             Artikel</button>
                     </div>
@@ -213,13 +248,13 @@
         <div
             class="xl:w-[80vw] mx-auto relative md:px-14 xl:px-0 object -top-20 md:-top-35 xl:top-0 z-0 justify-center items-center flex flex-col">
             <div class="hidden xl:block my-6">
-                <h1 class="text-6xl xl:text-4xl font-bold text-center">Fitur Aplikasi</h1>
-                <h2 class="my-2 mx-72 text-center">Temukan solusi cerdas untuk kebutuhan finansial dan informasi digital
+                <h1 class="text-6xl xl:text-4xl font-bold text-center dark:text-white">Fitur Aplikasi</h1>
+                <h2 class="my-2 mx-72 text-center dark:text-white">Temukan solusi cerdas untuk kebutuhan finansial dan informasi digital
                     Anda. Dirancang untuk kenyamanan, kecepatan, dan kepercayaan.</h2>
             </div>
             <section
                 class="flex mx-3 md:mx-0 space-x-3 md:space-x-10 xl:space-x-20 text-center text-xs md:text-xl font-semibold">
-                <div class="w-2/3">
+                <div data-aos="fade-right" data-aos-duration="700" class="w-2/3">
                     <div class="p-2 box-border drop-shadow-lg min-h-full bg-red-600 text-white rounded-md space-y-1.5">
                         <svg xmlns="http://www.w3.org/2000/svg " class="size-7 md:size-12 mx-auto fill-white"
                             viewBox="0 -960 960 960">
@@ -232,9 +267,9 @@
                         </h2>
                     </div>
                 </div>
-                <div class="w-2/3">
+                <div data-aos="fade-up" data-aos-duration="700" class="w-2/3">
                     <div
-                        class="p-2 box-border drop-shadow-lg min-h-full bg-white text-black rounded-md space-y-1.5 border border-black/20">
+                        class="p-2 box-border drop-shadow-lg min-h-full bg-white dark:bg-white/80 text-black rounded-md space-y-1.5 border border-black/20">
                         <svg xmlns="http://www.w3.org/2000/svg" class="size-7 md:size-12 mx-auto fill-black"
                             viewBox="0 -960 960 960">
                             <path
@@ -246,7 +281,7 @@
                         </h2>
                     </div>
                 </div>
-                <div class="w-2/3">
+                <div data-aos="fade-left" data-aos-duration="700" class="w-2/3">
                     <div class="p-2 box-border shadow-lg min-h-full bg-red-600 text-white rounded-md space-y-1.5">
                         <svg xmlns="http://www.w3.org/2000/svg" class="size-7 md:size-12 mx-auto fill-white"
                             viewBox="0 -960 960 960">
@@ -262,12 +297,12 @@
             </section>
         </div>
         <section class="mt-25 w-[80vw] mx-auto">
-            <div class="space-y-5">
+            <div data-aos-anchor-placement="top-bottom" data-aos="fade-up" data-aos-duration="700" class="space-y-5">
                 <div class="flex flex-col xl:flex-row-reverse mt-10">
                     <img class="w-[80%] xl:w-[85%] xl:my-16  object-cover mx-auto rounded-lg overflow-hidden xl:rounded-l-none shadow-xl"
                         src="./media/image/misi-section.jpg" alt="">
                     <div
-                        class="p-10 py-4 border-b border-x xl:border-r-0 xl:border-t drop-shadow-red-500 bg-white relative rounded-md -top-8 xl:top-0 w-full left-0">
+                        class="p-10 py-4 border-b border-x xl:border-r-0 xl:border-t drop-shadow-red-500 bg-white dark:bg-white/80 relative rounded-md -top-8 xl:top-0 w-full left-0">
                         <h1 class="text-4xl xl:text-6xl font-bold text-center xl:text-left text-red-500 xl:my-5">About
                             Us</h1>
                         <h2 class="xl:text-justify md:text-lg xl:text-xl">Tauang adalah platform terbuka yang
@@ -294,15 +329,15 @@
             <!-- Blur Overlay Layer -->
             <div class="absolute inset-0 -z-10 backdrop-blur-lg backdrop-grayscale bg-white/30"></div>
             <div class="w-full px-5 lg:px-50">
-                <h1 class="text-4xl font-bold pl-5 py-8 text-white text-center">Artikel
+                <h1 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" class="text-4xl font-bold pl-5 py-8 text-white text-center">Artikel
                     <hr class="mt-1 text-red-500 border-2 w-20 mx-auto">
                 </h1>
                 <div class="xl:mt-10 pb-0.5">
-                    <div
-                        class="xl:flex xl:justify-between xl:items-center xl:mt-10 bg-white xl:rounded-xl overflow-hidden">
+                    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="700"
+                        class="xl:flex xl:justify-between xl:items-center xl:mt-10 bg-white dark:bg-slate-700 xl:rounded-xl overflow-hidden">
                         <img class="w-full object-cover xl:w-[35%] xl:mi aspect-video"
                             src="./media/image/content1-main.jpg" alt="">
-                        <div class="p-5 py-10 xl:py-4 bg-white">
+                        <div class="p-5 py-10 xl:py-4 bg-white dark:bg-slate-700">
                             <span class="flex items-center justify-between xl:mr-10 text-[11px] md:text-base">
                                 <span class="space-x-2">
                                     <h2 class="bg-slate-900 text-lime-400 inline px-2 py-1 rounded-full xl:text-sm">
@@ -312,10 +347,10 @@
                                     <h2 class="bg-emerald-600 inline px-2 py-1 rounded-full xl:text-sm">Investasi
                                     </h2>
                                 </span>
-                                <h2 class="text-black">14 April,2025</h2>
+                                <h2 class="text-black dark:text-white">14 April,2025</h2>
                             </span>
-                            <h1 class="text-2xl md:text-4xl xl:text-xl font-bold mt-2">Masa Depan Investasi Digital</h1>
-                            <p class="mt-2 md:text-xl xl:text-sm">Teknologi blockchain membuka peluang baru dalam dunia
+                            <h1 class="text-2xl md:text-4xl xl:text-xl font-bold mt-2 dark:text-white">Masa Depan Investasi Digital</h1>
+                            <p class="mt-2 md:text-xl xl:text-sm dark:text-white">Teknologi blockchain membuka peluang baru dalam dunia
                                 keuangan. Dari aset kripto hingga smart contract, investor kini memiliki akses ke
                                 sistem yang
                                 transparan, aman, dan terdesentralisasi.</p>
@@ -328,20 +363,20 @@
                             </a>
                         </div>
                     </div>
-                    <div
-                        class="xl:flex xl:justify-between xl:items-center xl:mt-10 bg-white xl:rounded-xl overflow-hidden">
+                    <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="700" data-aos-delay="200"
+                        class="xl:flex xl:justify-between xl:items-center xl:mt-10 bg-white dark:bg-slate-700 xl:rounded-xl overflow-hidden">
                         <img class="w-full object-cover xl:w-[35%] xl:mi aspect-video"
                             src="./media/image/youtube-artikel.png" alt="">
-                        <div class="p-5 py-10 xl:py-4 bg-white">
+                        <div class="p-5 py-10 xl:py-4 bg-white dark:bg-slate-700">
                             <span class="flex items-center justify-between xl:mr-10 text-[11px] md:text-base">
                                 <span class="space-x-2">
                                     <h2 class="bg-emerald-600 inline px-2 py-1 rounded-full text-white">Portofolio</h2>
                                 </span>
-                                <h2 class="text-black">4 Agustus,2025</h2>
+                                <h2 class="text-black dark:text-white">4 Agustus,2025</h2>
                             </span>
-                            <h1 class="text-2xl md:text-4xl xl:text-xl font-bold mt-2">Menghasilkan Uang dari YouTube -
+                            <h1 class="text-2xl md:text-4xl xl:text-xl font-bold mt-2 dark:text-white">Menghasilkan Uang dari YouTube -
                                 Panduan Kreator Era Digital</h1>
-                            <p class="mt-2 md:text-xl xl:text-sm">Pelajari strategi monetisasi, bangun audiens yang
+                            <p class="mt-2 md:text-xl xl:text-sm dark:text-white">Pelajari strategi monetisasi, bangun audiens yang
                                 loyal, dan ubah konten menjadi sumber penghasilan berkelanjutan melalui platform video
                                 terbesar di dunia.</p>
                             <a href="./pages/content-artikel.html"
@@ -353,7 +388,7 @@
                             </a>
                         </div>
                     </div>
-                    <a href="./pages/article.html"
+                    <a data-aos="fade-up" href="./pages/article.html"
                         class="flex justify-items-center items-center w-fit mx-auto mb-10 py-3 px-10 rounded-full bg-red-500 my-10">
                         <h1 class="text-base md:text-lg xl:text-2xl italic text-white">Lihat Artikel Lainnyanya</h1>
                         <svg xmlns="http://www.w3.org/2000/svg" class="size-6 ml-2 fill-white" viewBox="0 -960 960 960">
@@ -363,7 +398,7 @@
                 </div>
             </div>
         </section>
-        <section class="mt-25 xl:mt-60 w-[80vw] mx-auto rounded-lg shadow-lg p-10">
+        <section data-aos="fade-up" data-aos-anchor-placement="center-bottom" class="mt-25 xl:mt-60 w-[80vw] mx-auto rounded-lg shadow-lg p-10 dark:bg-white/80">
             <div class="space-y-5">
                 <h1 class="text-center text-3xl font-bold self flex-none">Aktifitas Harian</h1>
                 <div class="space-y-5 xl:flex items-center">
@@ -415,6 +450,12 @@
                     </div>
                 </div>
         </section>
+        <div data-aos="fade-up" class="mt-15 xl:mt-20 w-[80vw] mx-auto">
+            <a href="#main">
+                <svg class="size-10 mx-auto fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M360-160v-120H160l320-360 320 360H600v120H360Zm80-80h80v-120h102L480-520 338-360h102v120ZM160-480l320-360 320 360H693L480-720 267-480H160Zm320 120Z"/></svg>
+            <h1 class="w-fit mx-auto text-2xl font-extrabold tracking-widest uppercase border-b-2 border-dashed dark:text-white">Kembali Ke Atas</h1>
+            </a>
+        </div>
     </main>
     <footer class="bg-red-600">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
@@ -424,10 +465,10 @@
                         <img src="./media/image/Logo.png" class="h-14 me-3" alt="" />
                     </a>
                 </div>
-                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
+                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2 text-white dark:text-slate-200">
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-white uppercase">Fitur</h2>
-                        <ul class="text-white font-medium">
+                        <h2 class="mb-6 text-sm font-semibold text-white dark:text-slate-200 uppercase">Fitur</h2>
+                        <ul class="font-medium dark:text-slate-200">
                             <li class="mb-4">
                                 <a class="aitrig hover:underline">Asisten Tawang</a>
                             </li>
@@ -437,8 +478,8 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Legal</h2>
-                        <ul class="text-white font-medium">
+                        <h2 class="mb-6 text-sm font-semibold text-white dark:text-slate-200 uppercase ">Legal</h2>
+                        <ul class="text-white dark:text-slate-200 font-medium">
                             <li class="mb-4">
                                 <a href="#" class="hover:underline">Privacy Policy</a>
                             </li>
@@ -451,11 +492,11 @@
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-white sm:text-center">© 2025 <a href="#"
+                <span class="text-sm text-white dark:text-slate-200 sm:text-center">© 2025 <a href="#"
                         class="hover:underline">Tauang</a>. All Rights Reserved.
                 </span>
                 <div class="flex mt-4 sm:justify-center sm:mt-0">
-                    <a href="#" class="text-white hover:text-gray-900 ">
+                    <a href="#" class="text-white dark:text-slate-200 hover:text-gray-900 ">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 8 19">
                             <path fill-rule="evenodd"
@@ -464,7 +505,7 @@
                         </svg>
                         <span class="sr-only">Facebook page</span>
                     </a>
-                    <a href="#" class="text-white hover:text-gray-900  ms-5">
+                    <a href="#" class="text-white dark:text-slate-200 hover:text-gray-900  ms-5">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 21 16">
                             <path
@@ -472,7 +513,7 @@
                         </svg>
                         <span class="sr-only">Discord community</span>
                     </a>
-                    <a href="#" class="text-white hover:text-gray-900  ms-5">
+                    <a href="#" class="text-white dark:text-slate-200 hover:text-gray-900  ms-5">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 20 17">
                             <path fill-rule="evenodd"
@@ -481,7 +522,7 @@
                         </svg>
                         <span class="sr-only">Twitter page</span>
                     </a>
-                    <a href="#" class="text-white hover:text-gray-900 ms-5">
+                    <a href="#" class="text-white dark:text-slate-200 hover:text-gray-900 ms-5">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
@@ -490,7 +531,7 @@
                         </svg>
                         <span class="sr-only">GitHub account</span>
                     </a>
-                    <a href="#" class="text-white hover:text-gray-900 ms-5">
+                    <a href="#" class="text-white dark:text-slate-200 hover:text-gray-900 ms-5">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
@@ -510,11 +551,11 @@
     <!-- Popup Chat Component -->
     <div id="popupChat" class="fixed inset-0 flex items-center justify-center bg-black/40 z-50 hidden">
         <div class="relative flex flex-col items-center w-[750px] max-w-[90vw] mx-auto">
-            <div class="bg-white rounded-xl shadow-2xl p-6 w-full">
+            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-2xl p-6 w-full">
                 <button id="closePopupChat"
                     class="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-2xl font-bold">&times;</button>
-                <h1 class="mb-4 text-4xl font-bold text-center">TAWANG AI</h1>
-                <div class="h-64 bg-slate-200 p-3 rounded-xl overflow-y-scroll mb-4 min-h-96">
+                <h1 class="mb-4 text-4xl font-bold text-center dark:text-white">TAWANG AI</h1>
+                <div class="h-64 bg-slate-200 dark:bg-slate-400 p-3 rounded-xl overflow-y-scroll mb-4 min-h-96">
                     <div class="flex mb-4 rounded-xl rounded-tl-4xl float-left">
                         <span class="mr-2.5 float-left"><img class="w-10 rounded-full" src="./media/image/pphitam.jpg"
                                 alt=""></span>
@@ -552,12 +593,12 @@
                     </div>
                 </div>
                 <div class="w-full">
-                    <label for="aiPrompt" class="block text-sm font-semibold text-gray-700 mb-2">
+                    <label for="aiPrompt" class="block text-sm font-semibold text-gray-700 dark:text-white mb-2">
                         Ajukan Pertanyaan atau Hitung Keuangan Anda
                     </label>
                     <textarea id="aiPrompt" name="aiPrompt" rows="6"
                         placeholder="Tulis pertanyaan, ide, atau hitung keuangan harian Anda bersama AI."
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm resize-none bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-200 transition duration-200"></textarea>
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm resize-none bg-white dark:bg-slate-400 dark:placeholder-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-200 transition duration-200"></textarea>
                 </div>
             </div>
         </div>
@@ -577,6 +618,9 @@
         document.getElementById('closePopupChat').addEventListener('click', function () {
             document.getElementById('popupChat').classList.add('hidden');
         });
+    </script>
+    <script>
+    AOS.init();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
@@ -629,19 +673,19 @@
             const tawang = document.getElementById('tawang');
             const menu = document.getElementById('menu');
             if (window.scrollY > 700) {
-                navbar.classList.add('fixed', 'top-0', 'bg-white/80', 'backdrop-blur-md', 'shadow-lg', 'z-50');
+                navbar.classList.add('fixed', 'top-0', 'bg-white/80', 'dark:bg-slate-800/80', 'backdrop-blur-md', 'shadow-lg', 'z-50');
                 navbar.classList.remove('absolute', 'bg-transparent', 'z-10');
                 tawang.classList.add('text-slate-800');
                 tawang.classList.remove('text-white');
-                menu.classList.add('fill-slate-800');
-                menu.classList.remove('fill-white');
+                menu.classList.add('fill-slate-800', 'dark:fill-white');
+                menu.classList.remove('fill-white', 'dark:fill-slate-800');
             } else {
-                navbar.classList.remove('fixed', 'top-0', 'bg-white/80', 'backdrop-blur-md', 'shadow-lg', 'z-50');
+                navbar.classList.remove('fixed', 'top-0', 'bg-white/80', 'dark:bg-slate-800/80', 'backdrop-blur-md', 'shadow-lg', 'z-50');
                 navbar.classList.add('absolute', 'bg-transparent', 'z-10');
                 tawang.classList.remove('text-slate-800');
                 tawang.classList.add('text-white');
-                menu.classList.remove('fill-slate-800');
-                menu.classList.add('fill-white');
+                menu.classList.remove('fill-slate-800', 'dark:fill-white');
+                menu.classList.add('fill-white', 'dark:fill-slate-800');
             }
         });
         window.addEventListener('scroll', () => {
@@ -658,7 +702,73 @@
             }
         });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const darkBtn = document.querySelector('[data-hs-theme-click-value="dark"]');
+    const lightBtn = document.querySelector('[data-hs-theme-click-value="light"]');
+    const root = document.documentElement;
+
+    // Ambil toggle dari localStorage
+    let toggle = localStorage.getItem("checkboxStatus");
+
+    // Kalau belum ada, defaultnya false (light mode)
+    if (toggle === null) {
+      toggle = "false";
+      localStorage.setItem("checkboxStatus", toggle);
+    }
+
+    // Fungsi untuk update UI sesuai toggle
+    function updateTheme() {
+      if (localStorage.getItem("checkboxStatus") === "true") {
+        // Dark mode aktif
+        root.classList.add("dark");
+        darkBtn.classList.add("hidden");
+        lightBtn.classList.remove("hidden");
+      } else {
+        // Light mode aktif
+        root.classList.remove("dark");
+        darkBtn.classList.remove("hidden");
+        lightBtn.classList.add("hidden");
+      }
+    }
+
+    // Panggil saat awal load
+    updateTheme();
+
+    // Event klik tombol dark
+    darkBtn.addEventListener("click", () => {
+      localStorage.setItem("checkboxStatus", "true");
+      updateTheme();
+    });
+
+    // Event klik tombol light
+    lightBtn.addEventListener("click", () => {
+      localStorage.setItem("checkboxStatus", "false");
+      updateTheme();
+    });
+  });
+</script>
+    <script>
+    
+
+    const isLoggedIn = localStorage.getItem('login') === 'true';
+    if (isLoggedIn) {
+    // Jika hanya satu elemen dengan class tertentu
+    const singleElement = document.querySelector('.komponen-satu');
+    if (singleElement) {
+      singleElement.classList.add('hidden');
+      singleElement.classList.add('block');
+    }
+
+    // Jika banyak elemen dengan class yang sama
+    const multipleElements = document.querySelectorAll('.komponen-dua');
+    multipleElements.forEach(el => {
+      el.classList.add('block');
+      el.classList.remove('hidden');
+    });
+  }
+
+</script>
 
 </body>
-
 </html>

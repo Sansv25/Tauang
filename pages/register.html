@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="../media/image/logo-polos.png">
+    <title>Tauang - Login</title>
+</head>
+
+<body class="bg-[url('../media/image/login-bg.jpg')] bg-position bg-cover bg-[-220px] md:bg-center">
+    <div class="flex justify-center items-center h-screen">
+        <div class="backdrop-blur-sm bg-white/30 py-10 m-5 rounded-lg p-6 xl:max-w-xl">
+            <div>
+                <div class="mx-auto w-fit mb-4 bg-white p-3 rounded-xl drop-shadow-xl borde-b ga">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-9" viewBox="0 -960 960 960"><path d="M720-400v-120H600v-80h120v-120h80v120h120v80H800v120h-80Zm-360-80q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm80-80h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0-80Zm0 400Z"/></svg>
+                </div>
+                <h1 class="text-2xl md:text-3xl- font-bold text-center">Buat Akun</h1>
+                <p class="text-center mb-7 text-sm md:text-lg md:mx-40 xl:mx-14">Daftar sekarang untuk mulai menyimpan artikel favorit, menulis karya kamu sendiri, dan menikmati semua fitur menarik yang kami sediakan.</p>
+            </div>
+            <form id="loginForm">
+                <div class="w-full space-y-4 mx-auto">
+                <div
+                    class="flex items-center bg-white border border-slate-300 rounded-md overflow-hidden shadow-sm mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="fill-slate-800 border-r border-slate-300 size-6 md:size-8 p-2 box-content"
+                        viewBox="0 -960 960 960">
+                        <path
+                            d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Z" />
+                    </svg>
+                    <input type="text" id="username" name="username"
+                        class="flex-1 px-3 py-2 text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none "
+                        placeholder="Username">
+                </div>
+                <div
+                    class="relative flex items-center bg-white border border-slate-300 rounded-md overflow-hidden shadow-sm">
+                    <!-- Ikon Password di Kiri -->
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="fill-slate-800 border-r border-slate-300 size-6 md:size-8 p-2 box-content"
+                        viewBox="0 -960 960 960">
+                        <path
+                            d="M280-400q-33 0-56.5-23.5T200-480q0-33 23.5-56.5T280-560q33 0 56.5 23.5T360-480q0 33-23.5 56.5T280-400Zm0 160q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h352l120 120-180 180-80-60-80 60-85-60h-47q-32 54-86.5 87T280-240Zm0-80q56 0 98.5-34t56.5-86h125l58 41 82-61 71 55 75-75-40-40H435q-14-52-56.5-86T280-640q-66 0-113 47t-47 113q0 66 47 113t113 47Z" />
+                    </svg>
+                    <!-- Input Password -->
+                    <input type="password" id="passwordInput" name="password"
+                        class="flex-1 px-3 pr-10 py-2 text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none"
+                        placeholder="Password">
+                    <!-- Toggle Mata -->
+                    <button type="button" id="toggleEye" class="absolute right-2 w-6 h-6 p-0 cursor-pointer">
+                        <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#475569"
+                            class="w-6 h-6 hidden">
+                            <path
+                                d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Z" />
+                        </svg>
+                        <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#475569"
+                            class="w-6 h-6 block">
+                            <path
+                                d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Z" />
+                        </svg>
+                    </button>
+                </div>
+                <div
+                    class="flex items-center bg-white border border-slate-300 rounded-md overflow-hidden shadow-sm mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"class="fill-slate-800 border-r border-slate-300 size-6 md:size-8 p-2 box-content"><path d="M320-400q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm160 0q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm160 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>
+                    <input type="date" placeholder="Tanggal Lahir" id="date" name="date"
+                        class="flex-1 px-3 py-2 text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none ">
+                </div>
+                <div
+                    class="flex items-center bg-white border border-slate-300 rounded-md overflow-hidden shadow-sm mb-4">
+                    <h1 class="fill-slate-800 border-r border-slate-300 font-bold p-2 text-center text-sm w-6 md:w-8 box-content aspect-square leading-5 md:leading-9">+62</h1>
+                    <input type="tel" placeholder="No Telepon" id="number" name="date"
+                        class="flex-1 px-3 py-2 text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none">
+                </div>
+            </div>
+            <div class="py-4">
+                <button type="submit"
+                    class="w-full bg-red-700 text-white py-2 rounded-md mt-4 hover:bg-white hover:text-black transition-colors duration-300 md:text-xl">
+                    Buat
+                </button>
+            </div>
+            </form>
+            <div class="flex items-center gap-4">
+                <hr class="flex-1 border-t-3 border-dotted border-white/10">
+                <a href="register.html" class="text-lg font-semibold text-slate-200 underline">Sudah Punya Akun</a>
+                <hr class="flex-1 border-t-3 border-dotted border-white/10">
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("toggleEye").addEventListener("click", function () {
+            const input = document.getElementById("passwordInput");
+            const eyeOpen = document.getElementById("eyeOpen");
+            const eyeClosed = document.getElementById("eyeClosed");
+            const isHidden = input.type === "password";
+            input.type = isHidden ? "text" : "password";
+            eyeOpen.classList.toggle("hidden", !isHidden);
+            eyeOpen.classList.toggle("block", isHidden);
+            eyeClosed.classList.toggle("hidden", isHidden);
+            eyeClosed.classList.toggle("block", !isHidden);
+        });
+
+  </script>
+  
+<script>
+  const phoneInput = document.getElementById("number");
+
+  phoneInput.addEventListener("input", function (e) {
+    let raw = e.target.value.replace(/\D/g, "").slice(0, 11); // hanya angka, max 11 digit
+    let formatted = "";
+
+    if (raw.length > 0) {
+      formatted += raw.slice(0, 3); // 812
+    }
+    if (raw.length >= 4) {
+      formatted += "-" + raw.slice(3, 7); // 8888
+    }
+    if (raw.length >= 8) {
+      formatted += "-" + raw.slice(7, 11); // 8888
+    }
+
+    e.target.value = formatted;
+  });
+</script>
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // cegah submit default
+
+    // Simulasi login berhasil (bisa diganti dengan validasi asli)
+    Swal.fire({
+      title: "Akun Berhasil Dibuat!",
+      html: "Kamu Sekarang Punya Akun, <br> Mohon Selesaikan Tahap Login.",
+      icon: "success",
+      confirmButtonText: "OK"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "./login.html"; // redirect ke halaman utama
+      }
+    });
+  });
+</script>
+
+
+</body>
+</body>
+
+</html>

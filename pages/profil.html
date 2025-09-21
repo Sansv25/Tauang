@@ -254,6 +254,20 @@
                                 </svg>
                             </div>
                         </label>
+                        <label for="mode" class="flex justify-between p-2 bg-white border-b border-slate-200">
+                            <h1>Dark Mode</h1>
+                            <div class="relative w-5 h-5">
+                                <input type="checkbox" id="mode" checked
+                                    class="peer appearance-none w-full h-full rounded border border-slate-300 checked:bg-red-500 checked:border-red-700 cursor-pointer" />
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="absolute inset-0 m-auto size-4 fill-white opacity-0 peer-checked:opacity-100 transition-opacity duration-200"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -311,5 +325,14 @@
         closeMenu.addEventListener('click', closeMenuFunc);
         overlay.addEventListener('click', closeMenuFunc);
     </script>
+    <script>
+    const checkbox = document.getElementById('mode');
+    checkbox.checked = localStorage.getItem('checkboxStatus') === 'true';
+    checkbox.addEventListener('change', () => {
+    localStorage.setItem('checkboxStatus', checkbox.checked);
+    console.log(localStorage.getItem('checkboxStatus'));
+    });
+</script>
+
 </body>
 </html>

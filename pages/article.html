@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
     <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
         :root {
     --purple: rgb(232, 121, 249);
     --blue: rgb(96, 165, 250);
@@ -31,12 +32,12 @@
     <title>Tauang - Artikel</title>
 </head>
 
-<body class="bg-white smoo">
+<body class="bg-white dark:bg-slate-400">
     <nav id="navbar"
         class="navbar w-full px-4 xl:px-[10%] py-2 flex items-center justify-between transition-all duration-300 bg-transparent absolute top-0 left-0 z-10">
         <a href="../index.html" class="flex items-center">
             <img id="logo" src="../media/image/logo-polos.png" alt="logo" class="size-15 md:size-20" />
-            <h2 class="font-indonesiana text-xl md:text-2xl -ml-2 text-black" id="tawang">Tauang</h2>
+            <h2 class="font-indonesiana text-xl md:text-2xl -ml-2 text-black dark:text-white" id="tawang">Tauang</h2>
         </a>
         <div class="flex xl:flex-row-reverse items-center gap-0 xl:gap-8 xl:text-xl">
             <a href="./profil.html" class="hidden xl:block">
@@ -49,7 +50,7 @@
             <div
                 class="flex items-center border-2 border-slate-300 focus-within:border-red-500 rounded-full px-3 py-1 w-fit">
                 <input type="text" name="search" id="search" placeholder="Cari Artikel" autocomplete="off"
-                    class="focus:outline-none w-20 md:w-full text-xs md:text-base bg-transparent placeholder:text-slate-400" />
+                    class="focus:outline-none w-20 md:w-full text-xs md:text-base bg-transparent placeholder:text-slate-400 dark:placeholder-slate-200" />
                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
                     fill="#EA3323" class="ml-2">
                     <path
@@ -58,7 +59,7 @@
             </div>
             <button class="xl:hidden" id="menuButton">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
-                    class="fill-slate-800 size-8 md:size-12 m-2" id="menu">
+                    class="fill-slate-800 dark:fill-white size-8 md:size-12 m-2" id="menu">
                     <path
                         d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z" />
                 </svg>
@@ -69,9 +70,9 @@
     <div id="sideMenuOverlay"
         class="fixed inset-0 backdrop-blur-lg bg-opacity-40 z-40 hidden transition-opacity duration-300"></div>
     <div id="sideMenu"
-        class="fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden">
+        class="fixed top-0 right-0 h-full w-64 bg-white dark:bg-slate-700 shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden">
         <button id="closeMenu" class="absolute top-4 left-4 text-xl font-bold">
-            <svg class="fill-black size-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+            <svg class="fill-black dark:fill-white size-8 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                 <path
                     d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
             </svg>
@@ -86,49 +87,49 @@
                             class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full translate-x-1 translate-y-1"></span>
                     </div>
                     <div class="flex flex-col justify-center mb-4">
-                        <h1 class="leading-6 text-center">Windah Basudara</h1>
+                        <h1 class="leading-6 text-center dark:text-white">Windah Basudara</h1>
                         <p class="text-xs text-center text-slate-500">Brando Franco Windah</p>
                     </div>
                     <a href="./profil.html" class="flex w-fit justify-items-center items-center mx-auto py-3">
-                        <svg class="size-[18px] fill-black mr-1" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="size-[18px] fill-black dark:fill-white mr-1" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 -960 960 960">
                             <path
                                 d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" />
                         </svg>
-                        <h2 class="text-sm">Pengaturan</h2>
+                        <h2 class="text-sm dark:text-white">Pengaturan</h2>
                     </a>
                 </div>
             </a>
             <a class="p-6 flex items-center" href="../index.html">
-                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <svg class="fill-black dark:fill-white size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path
                         d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
                 </svg>
-                <h2>Home</h2>
+                <h2 class="dark:text-white">Home</h2>
             </a>
             <a class="p-6 flex items-center" href="./simulasi-investasi.html">
-                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M280-160v-80h-80v-480h80v-80h80v80h80v480h-80v80h-80Zm0-160h80v-320h-80v320Zm320 160v-200h-80v-280h80v-160h80v160h80v280h-80v200h-80Zm0-280h80v-120h-80v120Zm-280-40Zm320-20Z"/></svg>
-                <h2>Simulasi Investasi</h2>
+                <svg class="fill-black dark:fill-white size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M280-160v-80h-80v-480h80v-80h80v80h80v480h-80v80h-80Zm0-160h80v-320h-80v320Zm320 160v-200h-80v-280h80v-160h80v160h80v280h-80v200h-80Zm0-280h80v-120h-80v120Zm-280-40Zm320-20Z"/></svg>
+                <h2 class="dark:text-white">Simulasi Investasi</h2>
             </a>
             <a class="p-6 flex items-center" href="./buat-artikel.html">
-                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <svg class="fill-black dark:fill-white size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path
                         d="M160-120v-170l527-526q12-12 27-18t30-6q16 0 30.5 6t25.5 18l56 56q12 11 18 25.5t6 30.5q0 15-6 30t-18 27L330-120H160Zm80-80h56l393-392-28-29-29-28-392 393v56Zm560-503-57-57 57 57Zm-139 82-29-28 57 57-28-29ZM560-120q74 0 137-37t63-103q0-36-19-62t-51-45l-59 59q23 10 36 22t13 26q0 23-36.5 41.5T560-200q-17 0-28.5 11.5T520-160q0 17 11.5 28.5T560-120ZM183-426l60-60q-20-8-31.5-16.5T200-520q0-12 18-24t76-37q88-38 117-69t29-70q0-55-44-87.5T280-840q-45 0-80.5 16T145-785q-11 13-9 29t15 26q13 11 29 9t27-13q14-14 31-20t42-6q41 0 60.5 12t19.5 28q0 14-17.5 25.5T262-654q-80 35-111 63.5T120-520q0 32 17 54.5t46 39.5Z" />
                 </svg>
-                <h2>Buat Arikel</h2>
+                <h2 class="dark:text-white">Buat Arikel</h2>
             </a>
             <a class="p-6 flex items-center" href="./profil.html">
-                <svg class="fill-black size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <svg class="fill-black dark:fill-white size-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path
                         d="M160-80v-560q0-33 23.5-56.5T240-720h320q33 0 56.5 23.5T640-640v560L400-200 160-80Zm80-121 160-86 160 86v-439H240v439Zm480-39v-560H280v-80h440q33 0 56.5 23.5T800-800v560h-80ZM240-640h320-320Z" />
                 </svg>
-                <h2>Disimpan</h2>
+                <h2 class="dark:text-white">Disimpan</h2>
             </a>
         </div>
     </div>
     <!-- content -->
-    <div class="z-40 bg-slate-200 backdrop-blur-sm shadow-2xl m-[2vw] rounded-xl mt-20 md:mt-24 w-[95vw] xl:w-[80vw] mx-auto">
-        <div class="p-5 space-x-10 overflow-x-auto flex border-b border-white text-xs">
+    <div class="z-40 bg-slate-200 dark:bg-slate-700 backdrop-blur-sm shadow-2xl m-[2vw] rounded-xl mt-20 md:mt-24 w-[95vw] xl:w-[80vw] mx-auto dark:text-white">
+        <div class="p-5 space-x-10 overflow-x-auto flex border-b border-white text-xs dark:text-white">
             <a href="./profil.html" class="flex-col items-center inline-flex space-y-2 ">
                 <img class="max-h-20 max-w-20 xl:max-h-28 xl:max-w-28 aspect-square rounded-full object-cover"
                     src="../media/image/pp-satoshi.jpg" alt="">
@@ -165,7 +166,7 @@
                         </h2>
                         <h2 class="bg-emerald-600 inline px-2 py-1 rounded-full text-white">Investasi</h2>
                     </span>
-                    <h2 class="text-black" style="text-shadow: 2px 3px 10px black;">14 April,2025</h2>
+                    <h2 style="text-shadow: 2px 3px 10px black;">14 April,2025</h2>
                 </span>
                 <h1 class="text-2xl md:text-4xl font-bold mt-2">Masa Depan Investasi Digital</h1>
                 <p class="mt-2 md:text-xl">Teknologi blockchain membuka peluang baru dalam dunia
@@ -188,7 +189,7 @@
                     <span class="space-x-2">
                         <h2 class="bg-emerald-600 inline px-2 py-1 rounded-full text-white">Portofolio</h2>
                     </span>
-                    <h2 class="text-black" style="text-shadow: 2px 3px 10px black;">4 Agustus,2025</h2>
+                    <h2 style="text-shadow: 2px 3px 10px black;">4 Agustus,2025</h2>
                 </span>
                 <h1 class="text-2xl md:text-4xl font-bold mt-2">Menghasilkan Uang dari YouTube - Panduan Kreator Era Digital</h1>
                 <p class="mt-2 md:text-xl">Pelajari strategi monetisasi, bangun audiens yang loyal, dan ubah konten menjadi sumber penghasilan berkelanjutan melalui platform video terbesar di dunia.</p>
@@ -316,7 +317,7 @@
                     <span class="space-x-2">
                         <h2 class="bg-purple-300 inline px-2 py-1 rounded-full text-gray-900">Psikologi Keuangan</h2>
                     </span>
-                    <h2 class="text-black" style="text-shadow: 2px 3px 10px black;">14 April,2025</h2>
+                    <h2 style="text-shadow: 2px 3px 10px black;">14 April,2025</h2>
                 </span>
                 <h1 class="text-2xl md:text-4xl font-bold mt-2">Dasar yang Wajib Dipahami Sebelum Mengelola Uang</h1>
                 <p class="mt-2 md:text-xl">Pelajari prinsip-prinsip inti dalam dunia keuangan—dari arus kas, aset, hingga pengambilan keputusan finansial. Cocok untuk pemula yang ingin membangun fondasi literasi keuangan yang kuat dan berkelanjutan.</p>
@@ -338,7 +339,7 @@
                         <h2 class="bg-rose-900 text-white inline px-2 py-1 rounded-full">Pajak & Regulasi
                         </h2>
                     </span>
-                    <h2 class="text-black" style="text-shadow: 2px 3px 10px black;">14 April,2025</h2>
+                    <h2 style="text-shadow: 2px 3px 10px black;">14 April,2025</h2>
                 </span>
                 <h1 class="text-2xl md:text-4xl font-bold mt-2">Rekening Nganggur 3 Bulan Bisa Diblokir</h1>
                 <p class="mt-2 md:text-xl">PPATK mulai memblokir rekening bank yang tidak aktif selama 3 hingga 12 bulan demi mencegah penyalahgunaan dan tindak kriminal. Pelajari apa itu rekening dormant, dampaknya, dan cara mengaktifkannya kembali.</p>
@@ -360,7 +361,7 @@
                         <h2 class="bg-sky-400 text-white inline px-2 py-1 rounded-full">Manajemen Keuangan Pribadi
                         </h2>
                     </span>
-                    <h2 class="text-black" style="text-shadow: 2px 3px 10px black;">17 Agustus,2025</h2>
+                    <h2 style="text-shadow: 2px 3px 10px black;">17 Agustus,2025</h2>
                 </span>
                 <h1 class="text-2xl md:text-4xl font-bold mt-2">Donasi yang Terencana - Mengelola Kebaikan dengan Bijak</h1>
                 <p class="mt-2 md:text-xl">Berdonasi bukan hanya soal memberi, tapi juga soal memahami nilai, kemampuan, dan dampaknya dalam pengelolaan keuangan pribadi. Pelajari cara menyelaraskan empati dengan strategi finansial.</p>
@@ -373,6 +374,32 @@
                 </a>
             </div>
         </div>
+        <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const root = document.documentElement;
+
+    // Ambil status dari localStorage
+    let toggle = localStorage.getItem("checkboxStatus");
+
+    // Jika belum ada, default ke light mode
+    if (toggle === null) {
+      toggle = "false";
+      localStorage.setItem("checkboxStatus", toggle);
+    }
+
+    // Terapkan tema sesuai status
+    function updateTheme() {
+      if (localStorage.getItem("checkboxStatus") === "true") {
+        root.classList.add("dark");
+      } else {
+        root.classList.remove("dark");
+      }
+    }
+
+    updateTheme();
+  });
+</script>
+
     <script>
         const menuButton = document.getElementById('menuButton');
         const sideMenu = document.getElementById('sideMenu');
@@ -406,10 +433,10 @@
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 0) {
-                navbar.classList.add('fixed', 'top-0', 'bg-white/80', 'backdrop-blur-md', 'shadow-lg', 'z-50');
+                navbar.classList.add('fixed', 'top-0', 'bg-white/80', 'dark:bg-slate-800/80', 'backdrop-blur-md', 'shadow-lg', 'z-50');
                 navbar.classList.remove('absolute', 'bg-transparent', 'z-10');
             } else {
-                navbar.classList.remove('fixed', 'bg-white/80', 'backdrop-blur-md', 'shadow-lg', 'z-50');
+                navbar.classList.remove('fixed', 'bg-white/80', 'dark:bg-slate-800/80', 'backdrop-blur-md', 'shadow-lg', 'z-50');
                 navbar.classList.add('absolute', 'bg-transparent', 'z-10');
             }
         });
