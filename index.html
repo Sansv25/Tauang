@@ -65,7 +65,7 @@
             <h2 class="font-indonesiana text-xl md:text-2xl -ml-2 text-white xl:text-black dark:text-white" id="tawang">Tauang</h2>
         </span>
         <div data-aos="fade" data-aos-delay="600" data-aos-duration="800" data-aos-anchor="#navbar" class="flex xl:flex-row-reverse items-center gap-3 xl:gap-8 xl:text-xl">
-            <a href="./profil.html" class="hidden min- komponen-dua max-xl:hidden">
+            <a href="./pages/profil.html" class="hidden min- komponen-dua max-xl:hidden">
                 <img class="size-14 object-cover rounded-full" src="../media/image/pp-user.png" alt="">
             </a>
             <a class="hidden xl:inline font-bold dark:text-white" href="./pages/profil.html">Disimpan</a>
@@ -197,9 +197,9 @@
                             <span class="hidden xl:inline t">untuk memahami risiko, mengelola aset, dan membangun masa
                                 depan yang stabil</span>.
                         </h2>
-                        <button data-aos="fade-up" data-aos-duration="800" onclick="window.location.href='./pages/article.html'"
+                        <a data-aos="fade-up" data-aos-duration="800" href="./pages/article.html"
                             class="bg-red-600 xl:self-start text-white px-5 py-2 border-2 border-white font-bold">Lihat
-                            Artikel</button>
+                            Artikel</a>
                     </div>
                 </div>
             </div>
@@ -781,8 +781,10 @@
       link.addEventListener('click', function (e) {
         const href = link.getAttribute('href');
 
-        // Izinkan navigasi jika href adalah anchor (misalnya #section)
-        if (href && href.startsWith('#')) return;
+        // Izinkan navigasi jika:
+        // 1. href adalah anchor (#...)
+        // 2. href menuju halaman login
+        if (!href || href.startsWith('#') || href.includes('login.html')) return;
 
         // Cegah navigasi jika belum login
         if (isAllowed === 'false') {
@@ -807,6 +809,7 @@
     });
   });
 </script>
+
 
 
 </body>
